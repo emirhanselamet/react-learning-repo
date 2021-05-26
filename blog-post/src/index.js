@@ -12,8 +12,12 @@ const App = () => {
         <UserCard>
         <SingleComment name='Alex' time='Today 5:00PM' text='I love React' img={profile1}/>
         </UserCard>
+        <UserCard>
         <SingleComment name='Jackie' time='Today 5:00AM' text='I love CSharp' img={profile2}/>
+        </UserCard>
+        <UserCard>
         <SingleComment name='Bob' time='Today 3:00PM' text='I love JavaScript' img={profile3}/> 
+        </UserCard>
     </div>
     )
 }
