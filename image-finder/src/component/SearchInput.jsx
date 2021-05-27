@@ -1,9 +1,11 @@
 import React from "react";
 
 class SearchInput extends React.Component {
+
 state = { entry: '' };
-onFormSubmit(event) {
+onFormSubmit = (event) => {
     event.preventDefault();
+    console.log(this.state.entry);
 }
 render() {
 
