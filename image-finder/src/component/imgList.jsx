@@ -1,10 +1,10 @@
 import React from "react";
 
-const ImageList = () => {
+const imgList = () => {
     return(
     <div>
         Benim fotolarım
     </div>
     )
 }
-export default ImageList;
+export default imgList;
