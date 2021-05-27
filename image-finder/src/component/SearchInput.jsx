@@ -2,11 +2,14 @@ import React from "react";
 
 class SearchInput extends React.Component {
 state = { entry: '' };
-
+onFormSubmit(event) {
+    event.preventDefault();
+}
 render() {
+
     return (
     <div className="ui segment">
-        <form className="ui form">
+        <form onSubmit={this.onFormSubmit} className="ui form">
         <div className="field">
             <div className="ui massive icon input">
             <input
