@@ -1,5 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom'
+import Model from './Model'
 const Contact = (props) => {
     // setTimeout(() => {
     //     //otomtaik bir sayfaya yönlendirme
@@ -7,6 +8,7 @@ const Contact = (props) => {
     // },2000)
     return(
     <div>
+        <Model />
             <div className='ui raised very padded text container segment'
         style={{marginTop:'80px'}}>
             <Link to='/alex' className='ui header'>Alex</Link>
