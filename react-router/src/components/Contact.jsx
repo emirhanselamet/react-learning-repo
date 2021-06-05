@@ -1,27 +1,37 @@
 import React from 'react';
 import {Link} from 'react-router-dom'
-import Model from './Model'
-const Contact = (props) => {
+import {connect} from 'react-redux';
+
+
+const Contact = ({cards}) => {
     // setTimeout(() => {
     //     //otomtaik bir sayfaya yönlendirme
     //     props.history.push('/about')
     // },2000)
     return(
     <div>
-        <Model />
-            <div className='ui raised very padded text container segment'
-        style={{marginTop:'80px'}}>
-            <Link to='/alex' className='ui header'>Alex</Link>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolor rerum quas sint voluptatibus at voluptatum. Laborum reiciendis beatae eum officiis dolor consectetur modi cupiditate tempora quas, iure ut consequuntur impedit.
-            </p>
-        </div>
-        <div className='ui raised very padded text container segment'
-        style={{marginTop:'80px'}}>
-            <Link to='/wilma' className='ui header'>Wilma</Link>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolor rerum quas sint voluptatibus at voluptatum. Laborum reiciendis beatae eum officiis dolor consectetur modi cupiditate tempora quas, iure ut consequuntur impedit.
-            </p>
-        </div>
+        {
+            cards.map((card) =>{
+                return (
+                    <div className='ui raised very padded text container segment'
+                    style={{marginTop:'80px'}}
+                    key={card.id}
+                    >
+                        <Link to={`/${card.title}`} className='ui header'>{card.title}</Link>
+                        <p>{card.body}</p>
+                        
+                    </div>
+                )
+            })
+        }
+        
     </div>
     )
 }
-export default Contact;
+const mapStateToProps = (state) =>{
+    const {cards} = state;
+    return{
+        cards
+    }
+}
+export default connect(mapStateToProps)(Contact);
