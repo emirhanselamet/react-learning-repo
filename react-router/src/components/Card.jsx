@@ -1,11 +1,17 @@
 import React from "react";
 import { connect } from "react-redux";
+import {deleteCard,fetchUser} from '../actions/cardActinos';
 
 class Card extends React.Component {
-  
+
+  componentDidMount() {
+    this.props.fetchUser();
+  }
+
   onBUttonClick = () => {
     let {id} = this.props.card;
     this.props.deleteCard(id);
+    this.props.history.push('/contact');
   }
 //   state = { user: "" };
 //   componentDidMount() {
@@ -35,7 +41,8 @@ const mapStateToProps = (state, ownProps) => {
 };
 const mapDispatchToProps = (dispatch) =>{
   return { 
-    deleteCard: (id) => { dispatch({type:'DELETE_CARD',id}) }
+    deleteCard: (id) => { dispatch(deleteCard(id)) },
+    fetchUser:() => {dispatch(fetchUser())}
 }
 }
 export default connect(mapStateToProps,mapDispatchToProps)(Card);
