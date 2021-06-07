@@ -7,7 +7,7 @@ export const deleteCard = (id) => {
 }
 export const fetchUser = () => {
     return (dispatch) => {
-        axios.get('https://jsonplaceholder.typicode.com/user')
+        axios.get('https://jsonplaceholder.typicode.com/users')
         .then(({data})=>{
             dispatch({type: 'FETCH_USER',payload:data})
         })

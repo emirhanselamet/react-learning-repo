@@ -8,27 +8,28 @@ class Card extends React.Component {
     this.props.fetchUser();
   }
 
-  onBUttonClick = () => {
-    let {id} = this.props.card;
-    this.props.deleteCard(id);
-    this.props.history.push('/contact');
-  }
+
 //   state = { user: "" };
 //   componentDidMount() {
 //     let user = this.props.match.params.user;
 //     this.setState({ user });
 //   }
   render() {
-  const {title,body} =this.props.card;
+    const {users} = this.props;
     return (
-      <div
+    users.map(user =>{
+      return(
+        <div
         className="ui raised very padded text container segment"
         style={{ marginTop: "80px" }}
+        key = {user.id}
       >
-        <h3 className="ui header">{title}</h3>
-        <p>{body}</p>
+        <h3 className="ui header">{user.name}</h3>
+        <p>{user.email}</p>
         <button className="ui primary right floated button" onClick={this.onBUttonClick}>Delete</button>
       </div>
+      )
+    })
     );
   }
 }
@@ -37,6 +38,7 @@ const mapStateToProps = (state, ownProps) => {
 
   return {
     card: state.cards.find((card) => card.title === title),
+    users: state.users
   };
 };
 const mapDispatchToProps = (dispatch) =>{
