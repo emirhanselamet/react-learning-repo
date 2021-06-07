@@ -2,7 +2,9 @@ import React from 'react';
 import {ThemeContext} from '../contexts/ThemeContext'
 class Navbar extends React.Component {
     static contextType = ThemeContext;
+
     render(){
+        const {isDarkTheme,darkTheme,lightTheme} = this.context;
         return(
             <nav>
                 <h2 className="ui centered header">
