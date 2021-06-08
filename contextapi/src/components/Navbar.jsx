@@ -5,9 +5,10 @@ class Navbar extends React.Component {
 
     render(){
         const {isDarkTheme,darkTheme,lightTheme} = this.context;
+        const theme = isDarkTheme ? darkTheme : lightTheme;
         return(
-            <nav>
-                <h2 className="ui centered header">
+            <nav style={{backgroundColor: theme.backgroundColor, color :theme.text , height: '120px'}}>
+                <h2 style={{textalign: 'center'}} className="ui centered header">
                     FieraSoft
                 </h2>
                 <div className='ui three buttons'>
